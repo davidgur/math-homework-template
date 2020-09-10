@@ -157,7 +157,7 @@
     % Setup header
     \setlength{\headheight}{15.2pt}
     \setlength{\headsep}{0.2in}
-    \lhead{\hwclass{} \hwlecture\hwsection}%
+    \lhead{\hwclass{}}%
     \chead{\hwname{} (\hwemail)}%
     \rhead{\hwtype{} \hwnum}%
 
