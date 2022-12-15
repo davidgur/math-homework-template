@@ -15,6 +15,7 @@
 
 % Better fonts with accents
 \RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
 
 % Required for starred commands
 \RequirePackage{suffix}
@@ -25,6 +26,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{centernot}
+\RequirePackage{physics}
 
 % Nice lists
 \RequirePackage{enumerate}
@@ -33,10 +35,10 @@
 % Nice images, figures, and listings
 \RequirePackage{graphicx}
 \RequirePackage{grffile}
-\RequirePackage[all]{xy}
-\RequirePackage{wrapfig}
 \RequirePackage{fancyvrb}
 \RequirePackage{listings}
+\RequirePackage{framed}
+\RequirePackage{tabularx}
 
 % Conditionals
 \RequirePackage{ifthen}
@@ -97,7 +99,7 @@
     \addtocounter{questionCounter}{1}%
     \setcounter{partCounter}{0}%
     \vspace{.2in}%
-    \noindent{\bf \arabic{questionCounter}. #1}%
+    \noindent{\bf Question #1}%
     \vspace{0.3em} \hrule \vspace{.1in}%
   \end{minipage}
 }
@@ -155,7 +157,7 @@
 \ifthenelse{\equal{\@opanon}{0}}{%
   \renewcommand{\maketitle}[0]{%
     % Setup header
-    \setlength{\headheight}{15.2pt}
+    \setlength{\headheight}{15pt}
     \setlength{\headsep}{0.2in}
     \lhead{\hwclass{}}%
     \chead{\hwname{} (\hwemail)}%
@@ -168,13 +170,19 @@
     % Don't put header on first page
     \thispagestyle{plain}
 
-    \begin{center}
-      {\Large \hwclass{} \hwtype{} \hwnum}
+    \begin{table}[]
+        \begin{tabularx}{\textwidth}{Xr}
+            \Large{\hwclass{} \hwtype{} \hwnum}
+            &
+            \begin{tabular}[c]{@{}r@{}}
+                \hwname \\
+                \hwemail \\
+                \today 
+            \end{tabular}
+        \end{tabularx}
+    \end{table}
+    \vspace{-.275in}
 
-      \hwname{} (\hwemail)
-
-      \today
-    \end{center}
     \renewcommand{\headrulewidth}{0.4pt}
   }
 
@@ -196,6 +204,16 @@
     \newpage
   }
 }
+
+% ----- Mathematical Notation -------------------------------------------------
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\complexs}{\mathbb{C}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\field}{\mathbb{F}}
+
+\renewcommand{\vec}[1]{\vb{#1}}
 
 % ----- For usage with pandoc converted documents -----------------------------
 
